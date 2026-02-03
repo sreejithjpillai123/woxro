@@ -169,9 +169,9 @@
 
 .header-1 h1 {
     font-weight: 400;
-    font-size: 3rem;
+    font-size: 61px;
     line-height: 1;
-    font-family: serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .header-2 {

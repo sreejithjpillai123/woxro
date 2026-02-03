@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+DEPLOYED LINK : https://woxro-git-main-sreejiths-projects-b76efc52.vercel.app/
+
 First, run the development server:
 
 ```bash
