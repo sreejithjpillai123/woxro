@@ -96,48 +96,6 @@
     display: block;
 }
 
-/* Light reflection overlay for cube faces */
-.cube>div::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.6) 0%,
-            rgba(255, 255, 255, 0.2) 50%,
-            transparent 100%);
-    opacity: var(--reflection-opacity, 0);
-    transition: opacity 0.15s ease;
-    pointer-events: none;
-    z-index: 10;
-}
-
-/* Light sweep effect */
-.cube>div::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg,
-            transparent 30%,
-            rgba(255, 255, 255, 0.9) 50%,
-            transparent 70%);
-    transform: translateX(var(--sweep-translate, -100%));
-    opacity: 0.7;
-    pointer-events: none;
-    z-index: 11;
-}
-
-/* Glow effect on cube container */
-.cube {
-    filter: drop-shadow(0 0 0px rgba(255, 233, 217, 0));
-    transition: filter 0.2s ease;
-}
-
 .front {
     transform: translateZ(75px);
 }
@@ -234,7 +192,7 @@
 
 .header-2 h2 {
     margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-family: 'Inter', sans-serif;
     font-style: bold;
 }
@@ -255,295 +213,33 @@
     /* Horizontal alignment */
 }
 
-/* Tablet Landscape (1024px and below) */
-@media (max-width: 1024px) {
-    .header-1 {
-        width: 70%;
-    }
-
-    .header-1 h1 {
-        font-size: 3rem;
-    }
-
-    .header-2 {
-        width: 50%;
-    }
-
-    .header-2 h2 {
-        font-size: 1.35rem;
-    }
-
-    .header-2 p {
-        font-size: 16px;
-    }
-
-    .cube {
-        width: 120px;
-        height: 120px;
-    }
-
-    .cube>div {
-        width: 120px;
-        height: 120px;
-    }
-
-    .front {
-        transform: translateZ(60px);
-    }
-
-    .back {
-        transform: translateZ(-60px) rotateY(180deg);
-    }
-
-    .right {
-        transform: translateX(60px) rotateY(90deg);
-    }
-
-    .left {
-        transform: translateX(-60px) rotateY(-90deg);
-    }
-
-    .top {
-        transform: translateY(-60px) rotateX(90deg);
-    }
-
-    .bottom {
-        transform: translateY(60px) rotateX(-90deg);
-    }
-}
-
-/* Tablet Portrait (768px and below) */
 @media (max-width: 768px) {
-    .header-1 {
-        width: 85%;
-    }
-
-    .header-1 h1 {
-        font-size: 2.5rem;
-        line-height: 1.1;
-    }
-
-    .header-2 {
-        width: 70%;
-    }
-
-    .header-2 h2 {
-        font-size: 1.25rem;
-        margin-bottom: 0.75rem;
-    }
-
-    .header-2 p {
-        font-size: 15px;
-        line-height: 120%;
-    }
-
-    .block {
-        width: 28px;
-        height: 28px;
-    }
-
-    .logo {
-        gap: 18px;
-    }
-
-    .cube {
-        width: 100px;
-        height: 100px;
-    }
-
-    .cube>div {
-        width: 100px;
-        height: 100px;
-    }
-
-    .front {
-        transform: translateZ(50px);
-    }
-
-    .back {
-        transform: translateZ(-50px) rotateY(180deg);
-    }
-
-    .right {
-        transform: translateX(50px) rotateY(90deg);
-    }
-
-    .left {
-        transform: translateX(-50px) rotateY(-90deg);
-    }
-
-    .top {
-        transform: translateY(-50px) rotateX(90deg);
-    }
-
-    .bottom {
-        transform: translateY(50px) rotateX(-90deg);
-    }
-
-    .cubes {
-        perspective: 8000px;
-    }
-}
-
-/* Mobile Landscape (640px and below) */
-@media (max-width: 640px) {
     .header-1 {
         width: 90%;
     }
 
     .header-1 h1 {
         font-size: 2rem;
-        line-height: 1.2;
     }
 
     .header-2 {
-        width: 85%;
+        width: 80%;
     }
 
     .header-2 h2 {
-        font-size: 1.1rem;
-    }
-
-    .header-2 p {
-        font-size: 14px;
-        line-height: 130%;
-    }
-
-    .about h2 {
-        font-size: 18px;
-    }
-}
-
-/* Mobile Portrait (480px and below) */
-@media (max-width: 480px) {
-    .header-1 {
-        width: 95%;
-    }
-
-    .header-1 h1 {
-        font-size: 1.75rem;
-    }
-
-    .header-2 {
-        width: 90%;
-    }
-
-    .header-2 h2 {
-        font-size: 1rem;
-    }
-
-    .header-2 p {
-        font-size: 13px;
-    }
-
-    .block {
-        width: 22px;
-        height: 22px;
-    }
-
-    .logo {
-        gap: 14px;
-        top: 20%;
-    }
-
-    .cube {
-        width: 80px;
-        height: 80px;
-    }
-
-    .cube>div {
-        width: 80px;
-        height: 80px;
-    }
-
-    .front {
-        transform: translateZ(40px);
-    }
-
-    .back {
-        transform: translateZ(-40px) rotateY(180deg);
-    }
-
-    .right {
-        transform: translateX(40px) rotateY(90deg);
-    }
-
-    .left {
-        transform: translateX(-40px) rotateY(-90deg);
-    }
-
-    .top {
-        transform: translateY(-40px) rotateX(90deg);
-    }
-
-    .bottom {
-        transform: translateY(40px) rotateX(-90deg);
-    }
-
-    .cubes {
-        perspective: 6000px;
-    }
-
-    .about h2 {
-        font-size: 16px;
-        padding: 0 1rem;
-    }
-}
-
-/* Extra Small Mobile (360px and below) */
-@media (max-width: 360px) {
-    .header-1 h1 {
         font-size: 1.5rem;
     }
 
-    .header-2 h2 {
-        font-size: 0.95rem;
-    }
-
     .header-2 p {
-        font-size: 12px;
+        font-size: 1rem;
     }
 
     .block {
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
     }
 
     .logo {
-        gap: 12px;
-    }
-
-    .cube {
-        width: 70px;
-        height: 70px;
-    }
-
-    .cube>div {
-        width: 70px;
-        height: 70px;
-    }
-
-    .front {
-        transform: translateZ(35px);
-    }
-
-    .back {
-        transform: translateZ(-35px) rotateY(180deg);
-    }
-
-    .right {
-        transform: translateX(35px) rotateY(90deg);
-    }
-
-    .left {
-        transform: translateX(-35px) rotateY(-90deg);
-    }
-
-    .top {
-        transform: translateY(-35px) rotateX(90deg);
-    }
-
-    .bottom {
-        transform: translateY(35px) rotateX(-90deg);
+        gap: 16px;
     }
 }

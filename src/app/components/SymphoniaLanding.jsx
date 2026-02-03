@@ -167,43 +167,6 @@ export default function SymphoniaLanding() {
             rotateY(${currentRotateY + additionalRotation}deg)
             rotateZ(${currentRotateZ}deg)
           `;
-
-                    // Light reflection and glow effects during combining
-                    // More intense when cubes are coming together (firstPhaseProgress 0.3-0.8)
-                    const combinePhaseStart = 0.3;
-                    const combinePhaseEnd = 0.9;
-
-                    if (firstPhaseProgress >= combinePhaseStart && firstPhaseProgress <= combinePhaseEnd) {
-                        const combineProgress = (firstPhaseProgress - combinePhaseStart) / (combinePhaseEnd - combinePhaseStart);
-
-                        // Glow effect intensity - peaks in the middle of combining
-                        const glowIntensity = Math.sin(combineProgress * Math.PI) * 20;
-                        cube.style.filter = `drop-shadow(0 0 ${glowIntensity}px rgba(255, 233, 217, 0.8))`;
-
-                        // Light reflection on cube faces
-                        const cubeFaces = cube.querySelectorAll('div');
-                        cubeFaces.forEach((face) => {
-                            // Reflection overlay opacity
-                            const reflectionOpacity = Math.sin(combineProgress * Math.PI) * 0.6;
-                            face.style.setProperty('--reflection-opacity', reflectionOpacity);
-
-                            // Trigger light sweep animation at specific progress points
-                            if (combineProgress >= 0.4 && combineProgress <= 0.6) {
-                                const sweepProgress = (combineProgress - 0.4) / 0.2;
-                                const sweepTranslate = interpolate(-100, 100, sweepProgress);
-                                if (face.querySelector('::after')) {
-                                    face.style.setProperty('--sweep-translate', `${sweepTranslate}%`);
-                                }
-                            }
-                        });
-                    } else {
-                        // Reset effects outside combining phase
-                        cube.style.filter = `drop-shadow(0 0 0px rgba(255, 233, 217, 0))`;
-                        const cubeFaces = cube.querySelectorAll('div');
-                        cubeFaces.forEach((face) => {
-                            face.style.setProperty('--reflection-opacity', 0);
-                        });
-                    }
                 });
             },
         });
